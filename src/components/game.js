@@ -16,6 +16,15 @@ export default class Game extends React.Component {
         }
     }
 
+    handleReset(){
+        this.setState({
+            correct: Math.floor(Math.random() * 100), // change to random 1-100
+            guesses: [],
+            count: 0,
+            feedback: 'Guess a Number 1-100'    
+        })
+    }
+
     handleGuess(rawGuess) {
         let guess = Math.floor(rawGuess);
         let correct = this.state.correct;
@@ -43,7 +52,7 @@ export default class Game extends React.Component {
             clue = 'What Happened? Guess is Invalid...'
         }
         this.setState({
-            count: this.state.count +1,
+            count: this.state.count + 1,
             guesses: [...this.state.guesses, guess],
             feedback: clue
         })
@@ -51,7 +60,7 @@ export default class Game extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header handleReset={() => this.handleReset()} />
                 <GuessSection
                     feedback={this.state.feedback} 
                     handleChange={guess=>this.handleGuess(guess)}
