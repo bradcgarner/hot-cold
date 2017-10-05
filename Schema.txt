@@ -1,0 +1,18 @@
+Game - put state here
+
+  Header - no props
+    TopNav - new game needs a callback fn
+             reset state to default
+    InfoModal - no props
+
+  GuessSection - PROPS.feedback
+    GuessForm - form needs a callback fn,
+                pass guess up 2 levels to game,
+                affect 
+                  GuessList (guesses)
+                  GuessCount (count)
+                  GuessSection (feedback)
+
+  GuessCount - PROPS.count
+
+  GuessList - PROPS.guesses
