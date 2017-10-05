@@ -43,7 +43,7 @@ export default class Game extends React.Component {
             clue = 'What Happened? Guess is Invalid...'
         }
         this.setState({
-            count: this.state.count++,
+            count: this.state.count +1,
             guesses: [...this.state.guesses, guess],
             feedback: clue
         })
