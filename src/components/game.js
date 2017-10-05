@@ -12,8 +12,15 @@ export default class Game extends React.Component {
             correct: Math.floor(Math.random() * 100), // change to random 1-100
             guesses: [],
             count: 0,
-            feedback: 'Guess a Number 1-100'    
+            feedback: 'Guess a Number 1-100', 
+            modal: false   
         }
+    }
+
+    handleModal(){
+        this.setState({
+            modal: !this.state.modal
+        })
     }
 
     handleReset(){
@@ -21,7 +28,8 @@ export default class Game extends React.Component {
             correct: Math.floor(Math.random() * 100), // change to random 1-100
             guesses: [],
             count: 0,
-            feedback: 'Guess a Number 1-100'    
+            feedback: 'Guess a Number 1-100',
+            modal: false     
         })
     }
 
@@ -60,7 +68,11 @@ export default class Game extends React.Component {
     render() {
         return (
             <div>
-                <Header handleReset={() => this.handleReset()} />
+                <Header 
+                    handleModal={ () => this.handleModal() } 
+                    handleReset={ () => this.handleReset() } 
+                    modal={this.state.modal}
+                />
                 <GuessSection
                     feedback={this.state.feedback} 
                     handleChange={guess=>this.handleGuess(guess)}
